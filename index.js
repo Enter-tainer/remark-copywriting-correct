@@ -2,7 +2,11 @@
 
 var visit = require('unist-util-visit')
 var is = require('unist-util-is')
-var pangu = require('pangu')
+// var pangu = require('pangu')
+import CopyWritingCorrectService from 'copywriting-correct';
+
+const service = new CopyWritingCorrectService();
+
 
 // List of Markdown AST: <https://github.com/syntax-tree/mdast>
 // AST Explorer: <https://astexplorer.net/#/gist/7a794a8fc43b2e75e27024c85fb77aad/0934495eb735dffdf739dc7943f7848940070f8e>
@@ -37,7 +41,9 @@ var pangu = require('pangu')
 
 function format(value) {
   if (!value) return value
-  return pangu.spacing(value)
+
+  return service.correct(value);
+  // return pangu.spacing(value)
 }
 
 function visitor(node) {
