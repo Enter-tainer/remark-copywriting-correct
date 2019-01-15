@@ -86,9 +86,16 @@ function attachCompiler(compiler) {
 }
 
 module.exports = function remarkPangu() {
-  const compiler = this.Compiler
+  const Compiler = this.Compiler
 
-  if (isRemarkCompiler(compiler)) {
-    attachCompiler(compiler)
+  if (isRemarkCompiler(Compiler)) {
+    attachCompiler(Compiler)
+  }
+  var visitors = Compiler.prototype.visitors;
+  var original = visitors.inlineMath;
+  visitors.inlineMath = inlineMath;
+  function inlineMath(node) {
+    return " " + original.apply(this, arguments) + " ";
+  }
   }
 }

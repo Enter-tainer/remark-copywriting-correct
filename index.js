@@ -40,7 +40,6 @@ var service = new copywriting_correct_1.CopyWritingCorrectService();
 
 function format(value) {
   if (!value) return value;
-
   return service.correct(value);
 }
 
@@ -58,22 +57,9 @@ function visitor(node) {
   }
 }
 
-module.exports = function attacher() {
-  return function transformer(tree, file) {
-    visit(tree, visitor);
-  };
-};
-
-module.exports = gap;
-
-function gap() {
-  var Compiler = this.Compiler;
-  var visitors = Compiler.prototype.visitors;
-  var original = visitors.inlineMath;
-
-  visitors.inlineMath = inlineMath;
-
-  function inlineMath(node) {
-    return " " + original.apply(this, arguments) + " ";
+module.exports = 
+  function attacher() {
+    return function transformer(tree, file) {
+      visit(tree, visitor);
+    };
   }
-}
