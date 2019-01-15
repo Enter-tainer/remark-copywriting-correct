@@ -1,12 +1,11 @@
-'use strict'
+"use strict";
 
-var visit = require('unist-util-visit')
-var is = require('unist-util-is')
+var visit = require("unist-util-visit");
+var is = require("unist-util-is");
 // var pangu = require('pangu')
-import CopyWritingCorrectService from 'copywriting-correct';
 
-const service = new CopyWritingCorrectService();
-
+var copywriting_correct_1 = require("copywriting-correct");
+var service = new copywriting_correct_1.CopyWritingCorrectService();
 
 // List of Markdown AST: <https://github.com/syntax-tree/mdast>
 // AST Explorer: <https://astexplorer.net/#/gist/7a794a8fc43b2e75e27024c85fb77aad/0934495eb735dffdf739dc7943f7848940070f8e>
@@ -40,28 +39,41 @@ const service = new CopyWritingCorrectService();
 //     3. ...
 
 function format(value) {
-  if (!value) return value
+  if (!value) return value;
 
   return service.correct(value);
-  // return pangu.spacing(value)
 }
 
 function visitor(node) {
-  if (is('text', node) || is('inlineCode', node)) {
-    node.value = format(node.value)
+  if (is("text", node) || is("inlineCode", node)) {
+    node.value = format(node.value);
   }
 
-  if (is('link', node) || is('image', node) || is('definition', node)) {
-    node.title = format(node.title)
+  if (is("link", node) || is("image", node) || is("definition", node)) {
+    node.title = format(node.title);
   }
 
-  if (is('image', node) || is('imageReference', node)) {
-    node.alt = format(node.alt)
+  if (is("image", node) || is("imageReference", node)) {
+    node.alt = format(node.alt);
   }
 }
 
 module.exports = function attacher() {
   return function transformer(tree, file) {
-    visit(tree, visitor)
+    visit(tree, visitor);
+  };
+};
+
+module.exports = gap;
+
+function gap() {
+  var Compiler = this.Compiler;
+  var visitors = Compiler.prototype.visitors;
+  var original = visitors.inlineMath;
+
+  visitors.inlineMath = inlineMath;
+
+  function inlineMath(node) {
+    return " " + original.apply(this, arguments) + " ";
   }
 }

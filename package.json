@@ -1,6 +1,6 @@
 {
   "name": "remark-copywriting-correct",
-  "version": "0.0.0-development",
+  "version": "0.1.0",
   "description": "Remark plugin with copywriting-correct.js",
   "main": "index.js",
   "files": [
@@ -27,7 +27,7 @@
   },
   "homepage": "https://github.com/Ir1d/remark-pangu#readme",
   "dependencies": {
-    "copywriting-correct": "^1.0.1",
+    "copywriting-correct": "^1.0.2",
     "unist-util-is": "^2.1.1",
     "unist-util-visit": "^1.1.3"
   },

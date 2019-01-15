@@ -1,7 +1,9 @@
 // const pangu = require('pangu')
 import CopyWritingCorrectService from 'copywriting-correct';
 
-const service = new CopyWritingCorrectService();
+var copywriting_correct_1 = require("copywriting-correct");
+var service = new copywriting_correct_1.CopyWritingCorrectService();
+
 // List of Markdown AST: <https://github.com/syntax-tree/mdast>
 // AST Explorer: <https://astexplorer.net/#/gist/7a794a8fc43b2e75e27024c85fb77aad/0934495eb735dffdf739dc7943f7848940070f8e>
 //
