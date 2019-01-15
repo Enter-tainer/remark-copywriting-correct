@@ -6,6 +6,13 @@ var is = require("unist-util-is");
 
 var copywriting_correct_1 = require("copywriting-correct");
 var service = new copywriting_correct_1.CopyWritingCorrectService();
+var links = new copywriting_correct_1.CopyWritingCorrectService();
+
+service.resetCorrectors([
+  copywriting_correct_1.CharacterCorrector,
+  copywriting_correct_1.SpaceCorrector,
+  copywriting_correct_1.UnitOfMeasurementCorrector
+]);
 
 // List of Markdown AST: <https://github.com/syntax-tree/mdast>
 // AST Explorer: <https://astexplorer.net/#/gist/7a794a8fc43b2e75e27024c85fb77aad/0934495eb735dffdf739dc7943f7848940070f8e>
@@ -49,6 +56,7 @@ function visitor(node) {
   }
 
   if (is("link", node) || is("image", node) || is("definition", node)) {
+    // console.log(node)
     node.title = format(node.title);
   }
 
@@ -57,9 +65,8 @@ function visitor(node) {
   }
 }
 
-module.exports = 
-  function attacher() {
-    return function transformer(tree, file) {
-      visit(tree, visitor);
-    };
-  }
+module.exports = function attacher() {
+  return function transformer(tree, file) {
+    visit(tree, visitor);
+  };
+};
