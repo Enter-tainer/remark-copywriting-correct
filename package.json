@@ -1,6 +1,6 @@
 {
   "name": "remark-copywriting-correct",
-  "version": "0.1.1",
+  "version": "0.2.0",
   "description": "Remark plugin with copywriting-correct.js",
   "main": "index.js",
   "files": [
