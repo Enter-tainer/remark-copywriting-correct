@@ -22,9 +22,9 @@ remark().use(pangu)
 const remark = require('remark')
 const pangu = require('remark-copywriting-correct')
 
-const doc = '中文abc中文';
+const doc = '中文abc中文$a_i$中文';
 console.log(remark().use(pangu).process(doc).contents);
-// => 中文 abc 中文
+// => 中文 abc 中文 $a_i$ 中文
 ```
 
 ## LICENSE
