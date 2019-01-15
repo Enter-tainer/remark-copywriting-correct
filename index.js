@@ -10,8 +10,7 @@ var links = new copywriting_correct_1.CopyWritingCorrectService();
 
 service.resetCorrectors([
   copywriting_correct_1.CharacterCorrector,
-  copywriting_correct_1.SpaceCorrector,
-  copywriting_correct_1.UnitOfMeasurementCorrector
+  copywriting_correct_1.SpaceCorrector
 ]);
 
 // List of Markdown AST: <https://github.com/syntax-tree/mdast>
