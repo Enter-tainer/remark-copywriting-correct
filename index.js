@@ -50,7 +50,9 @@ function format(value) {
 }
 
 function visitor(node) {
-  if (is("text", node) || is("inlineCode", node)) {
+  // if (is("text", node) || is("inlineCode", node)) {
+  // leave inlineCode untouched
+  if (is("text", node)) {
     node.value = format(node.value);
   }
 
