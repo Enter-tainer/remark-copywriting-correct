@@ -734,6 +734,11 @@ convert-source-map@^1.4.0, convert-source-map@^1.5.0:
   version "1.5.0"
   resolved "https://registry.yarnpkg.com/convert-source-map/-/convert-source-map-1.5.0.tgz#9acd70851c6d5dfdd93d9282e5edf94a03ff46b5"
 
+copywriting-correct@1.0.5:
+  version "1.0.5"
+  resolved "https://registry.yarnpkg.com/copywriting-correct/-/copywriting-correct-1.0.5.tgz#04a1fa649c1a3a9b03ab14406b0113637c50416b"
+  integrity sha512-n8Eia8KWsogFReetvM2yIJ7u1LKqzorNEilN3o6KstmM1XK1EHiBgPmGAJ9GboOd3E+OLixOFxItsTcry3sx+g==
+
 core-js@^2.4.0, core-js@^2.5.0:
   version "2.5.1"
   resolved "https://registry.yarnpkg.com/core-js/-/core-js-2.5.1.tgz#ae6874dc66937789b80754ff5428df66819ca50b"
@@ -2406,9 +2411,10 @@ p-locate@^2.0.0:
   dependencies:
     p-limit "^1.1.0"
 
-pangu@^3.3.0:
+pangu@3.3.0:
   version "3.3.0"
   resolved "https://registry.yarnpkg.com/pangu/-/pangu-3.3.0.tgz#e8ca9711b6ae49b609441528406030dae2e32e68"
+  integrity sha512-Li2jTSAwLDlfF5/9okzUlei72pOvhMtPMVAY2EBB547egYmimDhU7EN6K2WyJbumpYLAAEqznBa+KuqVEjHFuw==
 
 parse-entities@^1.0.2:
   version "1.1.1"
